@@ -1,0 +1,101 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+
+{% block style %}
+    <style>
+        body,
+        html {
+            color: black;
+            background-color: beige;
+        }
+    
+        a {
+            text-decoration: none;
+        }
+    
+        a:hover {
+            text-decoration: underline;
+        }
+    
+        .container {
+            margin-top: 100px;
+        }
+    
+        .accordion,
+        .panel {
+            background-color: rgba(34, 34, 34, 0);
+            color: black;
+        }
+    </style>
+{% endblock style %}
+    
+
+{% block nonheader %}
+
+    <!-- Hesap -->
+    <div class="container">
+        <div class="row">
+            <div class="col">
+
+                <div class="row">
+                    <h1>Hesap</h1>
+                    <hr>
+                    <div class="col">
+                        <h4>Üyelik ve Ödemeler</h4>
+                        <button>Üyeliği iptal et</button>
+                    </div>
+                    <div class="col">
+                        <strong>berkayulger45920@gmail.com</strong>
+                        <p>Parola:*******</p>
+                        <p>tel: 0537 692 52 42</p>
+                    </div>
+                    <div class="col">
+                        <a href="">E-postayi değiştir</a> <br>
+                        <a href="">Parolayı değiştir</a> <br>
+                        <a href="">Telefon numarasını değiştir</a>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <hr>
+                    <div class="col">
+                        <h4>Ayarlar</h4>
+                    </div>
+
+                    <div class="col">
+                        <a href="">18+ İçerik</a> <br>
+                        <a href="">Teste katılın</a> <br>
+                        <a href="">İçerik indirilen cihazları yönet</a>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <hr>
+                    <div class="col">
+                        <h4>Profil ve ebeveyn kontrolleri</h4>
+                    </div>
+
+                    <div class="col">
+                        <button class="accordion"><img src="{% static 'img/smile-profil.png' %}" alt=""> Berkay </button>
+                        <div class="panel">
+                            <p>
+                                <strong>Dil</strong> <br>
+                                <a href="" class="text-end">Değiştir</a>
+                            </p>
+                            <hr>
+                            <p>
+                                <strong>İzleme Kısıtlamaları</strong> <br>
+                                <a href="" class="text-end">Değiştir</a>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+{% endblock nonheader %}
+

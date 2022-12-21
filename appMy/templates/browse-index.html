@@ -1,0 +1,151 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block body %}
+
+      <!-- Hero image -->
+      <div class="hero-image">
+
+        <div class="hero-text">
+            <h1>Sınırsız film, dizi ve çok daha fazlası.</h1>
+            <h4>İstediğiniz yerde izleyin. İstediğiniz zaman iptal edin.</h4>
+            <p>İzlemeye hazır mısınız? Üyelik oluşturmak veya üyeliğinze erişmek için e-posta adresinizi girin</p>
+
+            <button class="btn btn-secondary btn-lg mt-3">Oynat</button>
+            <button class="btn btn-secondary btn-lg mt-3">Daha Fazla Bilgi</button>
+        </div>
+
+      </div>
+
+      <div class="container">
+            <div class="row mt-5">
+                <!-- ============== -->
+                {% comment %}
+                <div class="like">
+                    <label class="form-check" for="check1">
+                        <form class="d-flex" action="" method="POST" id="form-id">
+                        {% csrf_token %}
+                            <input type="checkbox" name="check1" id="check1">
+                            <span>
+                                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Capa_1" x="0px"
+                                y="0px" viewBox="0 0 66.831 66.831" style="enable-background:new 0 0 66.831 66.831;" xml:space="preserve">
+                                <g>
+                                    <path
+                                        d="M51.735,20h-2.934c1.419-3.934,2.799-9.714,0.942-14.247c-1.095-2.673-3.177-4.574-6.021-5.496   C43.197,0.086,42.651,0,42.101,0c-3.701,0-7.05,3.613-11.944,12.888c-2.199,4.171-5.364,7.683-7.593,9.577   c-0.946,0.804-1.702,1.624-2.315,2.431c-1.69-2.512-4.558-4.167-7.806-4.167c-5.185,0-9.404,4.219-9.404,9.404v27.294   c0,5.186,4.219,9.404,9.404,9.404c3.406,0,6.386-1.827,8.036-4.546c2.212,2.728,5.586,4.477,9.364,4.477h23.023   c9.507,0,10.926-6.136,10.926-9.793v-24.91C63.793,25.41,58.384,20,51.735,20z M15.847,57.427c0,1.877-1.527,3.404-3.403,3.404   c-1.877,0-3.404-1.527-3.404-3.404V30.133c0-1.877,1.527-3.404,3.404-3.404c1.876,0,3.403,1.527,3.403,3.404V57.427z    M57.793,56.969c0,2.221-0.354,3.793-4.926,3.793H29.844c-3.34,0-6.058-2.717-6.058-6.057V32.059l0.008-0.095l-0.021-0.176   c-0.006-0.096-0.106-2.386,2.676-4.75c2.656-2.258,6.419-6.425,9.015-11.351c4.132-7.83,6.104-9.353,6.639-9.641   c1.039,0.388,1.688,1.007,2.087,1.981c1.293,3.156-0.331,9.224-2.603,13.587l-2.283,4.385h12.43c3.341,0,6.059,2.718,6.059,6.059   V56.969z" />
+                                </g>
+                                </svg>
+                            </span>
+                            <input type="submit" value="" id="subid">
+                        </form>
+                    </label>
+                </div>
+                {% endcomment %}
+                    
+                <script>
+                    /*
+                    var check1 = document.getElementById('check1')
+                    var form = document.getElementById("form-id");
+                    check1.setAttribute('checked', 'on')
+                        document.querySelector('.form-check').addEventListener('click', () => {
+                            if (check1.hasAttribute('checked')) {
+                                check1.removeAttribute('checked')
+                            } else {
+
+                                check1.setAttribute('checked', 'on')
+                            }
+                            check1.toggleAttribute('checked')
+
+                            
+                            function myFunction() {
+                                var element = document.getElementById("myDIV");
+                                element.setAttribute().toggle("mystyle");
+                            }
+
+                            
+                        })*/
+                    
+
+                        
+                </script>
+                <!-- ======================= -->
+                <h3 class="text-light">Netflix'te Popüler</h3>
+
+                
+                
+                {% for v in video %}
+                <div class="col-md-2 col-4 mt-1">
+                    <div class="dropdown options-video">
+                        <a class="btn btn-secondary dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Capa_1" x="0px"
+                                y="0px" viewBox="0 0 54 54" style="enable-background:new 0 0 54 54;" xml:space="preserve">
+                                <g>
+                                    <g>
+                                        <path style="fill:#4FBA6F;"
+                                            d="M1,27L1,27C1,12.641,12.641,1,27,1h0c14.359,0,26,11.641,26,26v0c0,14.359-11.641,26-26,26h0    C12.641,53,1,41.359,1,27z" />
+                                        <path style="fill:#4FBA6F;"
+                                            d="M27,54C12.112,54,0,41.888,0,27S12.112,0,27,0s27,12.112,27,27S41.888,54,27,54z M27,2    C13.215,2,2,13.215,2,27s11.215,25,25,25s25-11.215,25-25S40.785,2,27,2z" />
+                                    </g>
+                                    <path style="fill:#FFFFFF;"
+                                        d="M27,34.999c-0.438,0-0.875-0.167-1.209-0.5L14.293,23.001c-0.391-0.391-0.391-1.023,0-1.414   s1.023-0.391,1.414,0L27,32.88l11.293-11.293c0.391-0.391,1.023-0.391,1.414,0s0.391,1.023,0,1.414L28.209,34.499   C27.876,34.832,27.438,34.999,27,34.999z" />
+                                </g>
+                            </svg>
+                        </a>
+                    
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="/browseIndex/{{ profil.id }}/add/{{ v.id }}/">Listeye Ekle</a></li>
+                            <li><a class="dropdown-item" href="/browseIndex/{{ profil.id }}/remove/{{ v.id }}/">Listeden Çıkar</a></li>
+                            <!-- <li><a class="dropdown-item" href="#">Something else here</a></li> -->
+                        </ul>
+                    </div>
+                    <a href="video.html">
+                        <img src="{{ v.image.url }}" class="w-100" alt="">
+                    </a>
+                </div>
+                {% endfor %}
+                    
+
+            </div>
+
+            <div class="row mt-5">
+                <h3 class="text-light"> Gündemdekiler</h3>
+
+                <div class="col-md-2 col-4 mt-1">
+                    <a href="video.html">
+                        <img src="img/film1.jpg" class="w-100" alt="">
+                    </a>
+                </div>
+
+                <div class="col-md-2 col-4 mt-1">
+                    <a href="video.html">
+                        <img src="img/film2.jpg" class="w-100" alt="">
+                    </a>
+                </div>
+
+                <div class="col-md-2 col-4 mt-1">
+                    <a href="video.html">
+                        <img src="img/film3.jpg" class="w-100" alt="">
+                    </a>
+                </div>
+
+                <div class="col-md-2 col-4 mt-1">
+                    <a href="video.html">
+                        <img src="img/film4.webp" class="w-100" alt="">
+                    </a>
+                </div>
+
+                <div class="col-md-2 col-4 mt-1">
+                    <a href="video.html">
+                        <img src="img/film1.jpg" class="w-100" alt="">
+                    </a>
+                </div>
+
+                <div class="col-md-2 col-4 mt-1">
+                    <a href="video.html">
+                        <img src="img/film1.jpg" class="w-100" alt="">
+                    </a>
+                </div>
+            </div>
+        </div>
+
+{% endblock body %}

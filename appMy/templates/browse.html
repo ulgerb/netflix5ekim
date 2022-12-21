@@ -1,0 +1,112 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block style %}
+    <style>
+        .card img:hover {
+            border: 4px solid white;
+        }
+    
+        button:hover {
+            border: 1px solid white;
+            color: white !important;
+        }
+    </style>
+{% endblock style %}
+    
+
+{% block nonheader %}
+
+
+    
+
+    <nav class="navbar">
+        <div class="container">
+            <a href="{% url 'index' %}" class="navbar-brand">
+                <img src="{% static 'img/netflix_logo.png' %}" alt="">
+            </a>
+        </div>
+    </nav>
+
+    <!-- profil seçimi -->
+    <div class="container">
+        <div class="row w-75 m-auto bg-black bg-opacity-25">
+            <h1 class="text-center text-light">Kimler İzliyor?</h1>
+
+            
+            {% if profiller %}
+                
+                {% for pp in profiller %}
+                    <div class="col-3 mt-5">
+                        <a href="/browseIndex/{{ pp.id }}/all/" class="text-decoration-none text-secondary">
+                            <div class="card bg-transparent">
+                                <!-- if else profil image -->
+                                {% if pp.image %}
+                                <img src="{{ pp.image.url }}" class="card-img-top" alt="" style="width: 217px; height: 217px; object-fit: contain;">   
+                                {% else %}
+                                <img src="{% static 'img/smile-icon.jpg' %}" class="card-img-top" alt="">
+                                {% endif %}
+
+                                <div>
+                                    <h5 class="card-title text-center ">{{ pp.name }}</h5>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                {% endfor %}
+                    
+            {% else %}
+                
+            {% endif %}
+                
+            
+            
+            {% if not hata %}
+            <div class="col-3 mt-5">
+                <a href="" class="text-decoration-none text-secondary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                    <div class="card bg-transparent" >
+                        <img src="{% static 'img/arti.svg' %}" class="card-img-top" alt="" >
+                        <div>
+                            <h5 class="card-title text-center ">Profil Ekle</h5>
+                        </div>
+                    </div>
+                    
+                </a>
+            </div>
+            <!-- Modal -->
+            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content" style="height: 300px;">
+                        <div class="modal-header">
+                            <h1 class="modal-title fs-5" id="exampleModalLabel">Profil Ekle</h1>
+                            <!-- <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button> -->
+                        </div>
+                        <div class="modal-body">
+                            
+                            {% if hata %}
+                                <div class="text-danger">{{ hata }}</div>
+                            {% else %}
+                                <form action="" method="POST" enctype="multipart/form-data">
+                                    {% csrf_token %}
+                                    <input type="text" class="form-control" name="profilname" placeholder="Profil Adı"><br>
+                                    <input class="form-control" name="profilimg" type="file" id="formFile"><br>
+                                    <button type="submit" class="btn btn-primary">Profil Ekle</button>
+                                </form>
+                            {% endif %}
+                                
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="buton mb-5 text-center">
+                <button class="bg-dark text-secondary w-50 p-2 ">Profil Yönetimi</button>
+            </div>
+            {% endif %}
+
+        </div>
+    </div>
+
+{% endblock nonheader %}
